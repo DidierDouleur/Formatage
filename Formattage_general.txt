@@ -1,0 +1,108 @@
+Qualité du code :
+
+Nous souhaitons homogénéiser le code que les développements soient faits sur Eclipse ou Intellij.
+Pour ce faire, merci de suivre les procédures ci-dessous.
+
+Dans Eclipse et Intellij, vous devez installer le plugin checkstyle :
+- Checkstyle integration for Eclipse / CSI
+- Checkstyle-IDEA
+
+
+Pour Eclipse :
+
+Une fois le plugin installé, faites un clic droit sur le projet > properties > Checkstyle
+Dans l'onglet "Local Check Configurations", créez une nouvelle configuration avec le bouton "new".
+Choisissez le type "Project Relative Configuration", nommez le "checkstyle{{projet}}" et sélectionnez le fichier "Checkstyles.xml" présent dans le projet racine MBG-WS2.
+Enfin, dans l'onglet "Main" de checkstyle, selectionnnez votre nouvelle configuration "checkstyle{{projet}}" et appliquez la sur le projet.
+
+Vous devez aussi activer un formatter spécifique pour le projet.
+
+Il faudra le paramétrer comme suit : clic droit sur le projet puis properties > java code style > formatter > Enable project specific settings
+et importer le fichier "Eclipse_formatter.xml".
+Il ne vous reste plus qu'à activer le formatage automatique à l'enregistrement sur le projet:
+clic droit sur le projet > properties > Java Editor > Save Actions
+cochez "enable projet spécific settings"
+cochez "Perform the selected actions on save"
+cochez "Format source code"
+cochez "Format all lines"
+cochez "Organize imports"
+
+
+Pour IntelliJ :
+
+I - Activer le formatter :
+
+1 - ouvrir les parametres (alt + ctrl + S).
+2 - Dans le menu editor →  Code Style → Java
+3 - Cliquer sur l'écrou a droite de "Scheme" →  "import" →  "IntelliJ IDEA code style XML"
+4 - Choisir le fichier "IntelliJ_formatter.xml"
+5 - personnaliser l'ordre des import :
+a - dans la fenêtre "import layout"
+b - Ajouter les import dans le style Eclipse : 
+
+            import static all other
+
+            <blank line>
+
+            import java.*
+
+            <blank line>
+
+            import javax.*
+
+            <blank line>
+
+            import org.*
+
+            <blank line>
+
+            import com.*
+
+            <blank line>
+
+            all other imports
+
+
+II - Il ne vous reste plus qu'à activer le formatage automatique à l'enregistrement sur le projet :
+Installation du plugin "Save Actions"
+
+
+1 - Dans les parametres aller dans l'onglet "plugin"
+2 - Aller dans l'onglet "Marketplace"
+3 - dans la barre de recherche chercher "Save Actions" et l'installer.
+4 - redémarrer l'IDE.
+5 - après redémarrage ouvrir les paramètres (alt + ctrl + S)
+6 - aller dans l'onglet "Other Settings" →  "Save Actions"
+7 - cocher les cases :
+
+    General
+
+        "Activate save actions on save (before saving each files, performs the configured actions below"
+    Formatting Actions
+
+        "Optimize imports"
+
+        "reformat file"
+    Java inspections and quick fix
+
+        Add final modifier to field
+
+        add final modifier to local variable or parameter
+
+        add final modifier to local variable or parameter except if it is implicit
+
+        add this ti field access
+
+III - Installer checkstyle :
+
+1 - Dans les parametres, aller dans l'onglet "plugin"
+2 - Aller dans l'onglet "Marketplace"
+3 - Dans la barre de recherche chercher "checkstyle" et installer "checkstyle-IDEA".
+4 - Redemmarrer l'IDE
+5 - Après redemarrage, ouvrir les parametres
+6 - Aller dans l'onglet "Other Settings" → "Checkstyle"
+7 - Choisir la version de checkstyle utilisée (8.18 actuellement)
+8 - Dans la partie Configuration File, Cliquer sur le plus et ajouter le fichier checkstyle se trouvant dans le projet (Ajouter le chemin)
+9 - Cocher la case correspondante au fichier fraichement ajouté.
+
+
